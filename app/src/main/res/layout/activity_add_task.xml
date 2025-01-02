@@ -1,0 +1,140 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:padding="16dp"
+  android:background="@color/white">
+
+  <!-- Title Input -->
+  <com.google.android.material.textfield.TextInputLayout
+    android:id="@+id/text_input_title"
+    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:hint="Titre"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintBottom_toTopOf="@id/text_input_description"
+    android:layout_marginBottom="16dp"
+    app:boxStrokeColor="@color/colorPrimary"
+    app:shapeAppearanceOverlay="@style/RoundedTextInputLayout">
+
+    <com.google.android.material.textfield.TextInputEditText
+      android:id="@+id/edit_title"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:textColor="@color/black"
+      android:textColorHint="@color/grey" />
+  </com.google.android.material.textfield.TextInputLayout>
+
+  <!-- Description Input -->
+  <com.google.android.material.textfield.TextInputLayout
+    android:id="@+id/text_input_description"
+    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:hint="Description"
+    app:layout_constraintTop_toBottomOf="@id/text_input_title"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintBottom_toTopOf="@id/text_input_due_date"
+    android:layout_marginBottom="16dp"
+    app:boxStrokeColor="@color/colorPrimary"
+    app:shapeAppearanceOverlay="@style/RoundedTextInputLayout">
+
+    <com.google.android.material.textfield.TextInputEditText
+      android:id="@+id/edit_description"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:textColor="@color/black"
+      android:textColorHint="@color/grey" />
+  </com.google.android.material.textfield.TextInputLayout>
+
+  <!-- Due Date Input -->
+  <com.google.android.material.textfield.TextInputLayout
+    android:id="@+id/text_input_due_date"
+    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:hint="Date d'échéance"
+    app:layout_constraintTop_toBottomOf="@id/text_input_description"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintBottom_toTopOf="@id/spinner_priority_layout"
+    android:layout_marginBottom="16dp"
+    app:boxStrokeColor="@color/colorPrimary"
+    app:shapeAppearanceOverlay="@style/RoundedTextInputLayout">
+
+    <com.google.android.material.textfield.TextInputEditText
+      android:id="@+id/edit_due_date"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:textColor="@color/black"
+      android:textColorHint="@color/grey" />
+  </com.google.android.material.textfield.TextInputLayout>
+
+  <!-- Priority Spinner -->
+  <com.google.android.material.textfield.TextInputLayout
+    android:id="@+id/spinner_priority_layout"
+    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:hint="Priorité"
+    app:layout_constraintTop_toBottomOf="@id/text_input_due_date"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintBottom_toTopOf="@id/spinner_category_layout"
+    android:layout_marginBottom="16dp"
+    app:boxStrokeColor="@color/colorPrimary"
+    app:shapeAppearanceOverlay="@style/RoundedTextInputLayout">
+
+    <Spinner
+      android:id="@+id/spinner_priority"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:background="@null"
+      android:spinnerMode="dropdown"
+      android:popupBackground="@color/white" />
+  </com.google.android.material.textfield.TextInputLayout>
+
+  <!-- Category Spinner -->
+  <com.google.android.material.textfield.TextInputLayout
+    android:id="@+id/spinner_category_layout"
+    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:hint="Catégorie"
+    app:layout_constraintTop_toBottomOf="@id/spinner_priority_layout"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintBottom_toTopOf="@id/button_save_task"
+    android:layout_marginBottom="16dp"
+    app:boxStrokeColor="@color/colorPrimary"
+    app:shapeAppearanceOverlay="@style/RoundedTextInputLayout">
+
+    <Spinner
+      android:id="@+id/spinner_category"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:background="@null"
+      android:spinnerMode="dropdown"
+      android:popupBackground="@color/white" />
+  </com.google.android.material.textfield.TextInputLayout>
+
+  <!-- Save Task Button -->
+  <com.google.android.material.button.MaterialButton
+    android:id="@+id/button_save_task"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="16dp"
+    android:text="Enregistrer la tâche"
+    android:textColor="@color/white"
+    android:backgroundTint="@color/colorPrimary"
+    app:cornerRadius="8dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/spinner_category_layout" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
