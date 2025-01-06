@@ -198,14 +198,14 @@ public class TaskDatabaseHelper extends SQLiteOpenHelper {
 
   // Similarly, add getOngoingTasksCount() and getOverdueTasksCount()
   public int getOngoingTasksCount() {
-    String query = "SELECT COUNT(*) FROM tasks WHERE is_completed = 0";
-    SQLiteDatabase db = this.getReadableDatabase();
-    Cursor cursor = db.rawQuery(query, null);
-    cursor.moveToFirst();
-    int count = cursor.getInt(0);
-    cursor.close();
-    return count;
-  }
+  String query = "SELECT COUNT(*) FROM tasks WHERE is_completed = 0 AND due_date >= date('now')";
+  SQLiteDatabase db = this.getReadableDatabase();
+  Cursor cursor = db.rawQuery(query, null);
+  cursor.moveToFirst();
+  int count = cursor.getInt(0);
+  cursor.close();
+  return count;
+}
 
   public int getOverdueTasksCount() {
     String query = "SELECT COUNT(*) FROM tasks WHERE is_completed = 0 AND due_date < date('now')";
